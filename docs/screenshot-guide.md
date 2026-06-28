@@ -2,6 +2,8 @@
 
 Use the included `examples/2026-football-preview.html` file for screenshots if you want something timely without exposing personal documents.
 
+The repo also includes a ready-made comparison image at `docs/assets/before-after.png`.
+
 ## Why this example works
 
 - it feels current

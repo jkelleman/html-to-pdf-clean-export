@@ -18,6 +18,8 @@ Clean PDF output with no visible browser-generated header or footer text.
 
 Use a safe example asset for screenshots. A good option is the included sports-themed sample, which feels current without using personal files or official tournament branding.
 
+![Before vs After screenshot](docs/assets/before-after.png)
+
 ## Why This Exists
 
 A common HTML-to-PDF workflow is to use Chrome in headless mode with flags like `--print-to-pdf`, `--print-to-pdf-header-template=""`, and `--print-to-pdf-footer-template=""`.
