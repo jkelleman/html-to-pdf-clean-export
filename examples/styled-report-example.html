@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Report Example</title>
+    <style>
+        @page { size: letter; margin: 0.45in; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #1f2937;
+            background: #fffaf4;
+        }
+        .hero {
+            background: linear-gradient(135deg, #134e4a 0%, #0f172a 100%);
+            color: white;
+            padding: 28px 32px;
+            margin: 0 0 24px 0;
+        }
+        .hero h1 {
+            margin: 0 0 6px 0;
+            font-size: 28px;
+        }
+        .hero p {
+            margin: 0;
+            opacity: 0.92;
+        }
+        .content {
+            padding: 0 32px 20px 32px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+        }
+        .card h2 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: #0f766e;
+        }
+        .card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .card li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Styled Report Example</h1>
+        <p>A more realistic document for testing HTML-to-PDF export quality.</p>
+    </section>
+    <section class="content">
+        <p>This sample uses backgrounds, spacing, and a two-column layout to show that the exporter preserves styled HTML while still suppressing leaked browser print chrome.</p>
+        <div class="grid">
+            <article class="card">
+                <h2>What should not appear</h2>
+                <ul>
+                    <li>Timestamp headers</li>
+                    <li>Page title headers</li>
+                    <li>Local file paths in footers</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h2>What should appear</h2>
+                <ul>
+                    <li>Document backgrounds</li>
+                    <li>Typography and spacing</li>
+                    <li>Layout and content only</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

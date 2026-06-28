@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Example</title>
+    <style>
+        @page { size: letter; margin: 0.5in; }
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #222;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 0.25rem;
+            color: #0f172a;
+        }
+        p {
+            margin: 0.75rem 0;
+        }
+        .note {
+            background: #f1f5f9;
+            border-left: 4px solid #0f766e;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Basic HTML to PDF Example</h1>
+    <p>This sample exists to demonstrate a clean PDF export without visible browser-generated headers or footers.</p>
+    <div class="note">
+        Expected result: no timestamp, no page title banner, and no local file path printed into the exported PDF.
+    </div>
+</body>
+</html>

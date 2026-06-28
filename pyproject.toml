@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "html-to-pdf-clean-export"
+version = "0.1.0"
+description = "Export HTML to clean PDFs without leaked headers, footers, timestamps, or local file paths."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "playwright>=1.53.0",
+]
+
+[project.scripts]
+html-to-pdf-clean-export = "export_html_to_pdf:main"
