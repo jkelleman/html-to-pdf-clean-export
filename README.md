@@ -6,6 +6,18 @@ Chrome's CLI print-to-PDF flow can leak unwanted browser-generated content into 
 
 It is designed for people generating resumes, portfolios, reports, application packets, invoices, and other HTML-based documents where stray header or footer text is unacceptable.
 
+## Before vs After
+
+Chrome's CLI PDF export can leak print header and footer content into generated documents, including timestamps, page titles, and local file paths.
+
+**Before:** `Chrome --print-to-pdf`  
+Visible timestamp or title in the header and a local `file:///...` path in the footer.
+
+**After:** `html-to-pdf-clean-export`  
+Clean PDF output with no visible browser-generated header or footer text.
+
+Use a safe example asset for screenshots. A good option is the included sports-themed sample, which feels current without using personal files or official tournament branding.
+
 ## Why This Exists
 
 A common HTML-to-PDF workflow is to use Chrome in headless mode with flags like `--print-to-pdf`, `--print-to-pdf-header-template=""`, and `--print-to-pdf-footer-template=""`.
@@ -107,8 +119,10 @@ html-to-pdf-clean-export/
   examples/
     basic-example.html
     styled-report-example.html
+    2026-football-preview.html
   docs/
     why-not-chrome-cli.md
+    screenshot-guide.md
   output/
     .gitkeep
 ```

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Football Preview</title>
+    <style>
+        @page { size: letter; margin: 0.45in; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #102a43;
+            background: #f8fafc;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0f766e 0%, #0b3b2e 100%);
+            color: white;
+            padding: 30px 34px;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 0.4px;
+        }
+        .hero p {
+            margin: 8px 0 0 0;
+            max-width: 44rem;
+            opacity: 0.94;
+            line-height: 1.5;
+        }
+        .content {
+            padding: 24px 34px 30px 34px;
+        }
+        .lede {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 18px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #d9e2ec;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+        }
+        .card h2 {
+            margin: 0 0 10px 0;
+            font-size: 17px;
+            color: #0f766e;
+        }
+        ul {
+            margin: 0;
+            padding-left: 18px;
+            line-height: 1.6;
+        }
+        li { margin-bottom: 6px; }
+        .score-strip {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .score {
+            background: #ecfeff;
+            border: 1px solid #a5f3fc;
+            border-radius: 12px;
+            padding: 14px;
+        }
+        .score strong {
+            display: block;
+            color: #164e63;
+            margin-bottom: 4px;
+        }
+        .note {
+            margin-top: 18px;
+            padding: 14px 16px;
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>2026 Football Preview</h1>
+        <p>An original, sports-themed sample document for testing HTML-to-PDF export. Useful for screenshots because it feels timely without relying on personal files or official tournament assets.</p>
+    </section>
+
+    <section class="content">
+        <p class="lede">This example is intentionally generic. It uses original copy, simple layout, and strong visual contrast so the difference between a noisy browser-generated print header and a clean exported PDF is easy to see in side-by-side screenshots.</p>
+
+        <div class="grid">
+            <article class="card">
+                <h2>What the sample demonstrates</h2>
+                <ul>
+                    <li>clean page title handling</li>
+                    <li>background preservation in PDF output</li>
+                    <li>styled layout without visible print chrome</li>
+                    <li>a safe, publishable screenshot subject</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>Why this topic works</h2>
+                <ul>
+                    <li>timely and recognizable</li>
+                    <li>not tied to personal documents</li>
+                    <li>easy to explain in a README or social post</li>
+                    <li>no need to expose real file paths or names</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="score-strip">
+            <div class="score">
+                <strong>Fixture A</strong>
+                Coastal City vs. River Town
+            </div>
+            <div class="score">
+                <strong>Fixture B</strong>
+                Northside FC vs. Metro United
+            </div>
+            <div class="score">
+                <strong>Fixture C</strong>
+                Harbor Athletic vs. Capital Club
+            </div>
+        </div>
+
+        <div class="note">
+            Screenshot tip: crop the exported PDF near the top and bottom margins. That makes leaked timestamps, titles, and local file paths immediately obvious in the broken version.
+        </div>
+    </section>
+</body>
+</html>
