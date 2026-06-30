@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What a Broken PDF Export Revealed About Product Trust</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --paper: #fffdf8;
+            --text: #0f172a;
+            --muted: #475569;
+            --teal: #0f766e;
+            --cyan: #0891b2;
+            --orange: #ea580c;
+            --red: #dc2626;
+            --line: #dbe4ee;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 48px 20px;
+            background:
+                radial-gradient(circle at top left, rgba(8, 145, 178, 0.08), transparent 30%),
+                linear-gradient(180deg, #f8fafc 0%, #fffdf8 100%);
+            color: var(--text);
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .article {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--paper);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 56px 56px 42px;
+            background: linear-gradient(135deg, #0f172a 0%, #0f766e 55%, #0891b2 100%);
+            color: white;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        h1 {
+            margin: 18px 0 14px;
+            font-size: 44px;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            max-width: 40rem;
+            font-size: 20px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.92);
+            margin: 0;
+        }
+
+        .content {
+            padding: 42px 56px 60px;
+        }
+
+        h2 {
+            margin: 40px 0 12px;
+            font-size: 28px;
+            line-height: 1.25;
+            color: var(--teal);
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size: 19px;
+            margin: 16px 0;
+        }
+
+        .lede {
+            font-size: 22px;
+            line-height: 1.6;
+            color: #0f172a;
+        }
+
+        .micro-list {
+            margin: 18px 0 24px;
+            padding: 0;
+            list-style: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .micro-list li {
+            margin: 6px 0;
+            color: var(--red);
+        }
+
+        figure {
+            margin: 34px 0;
+        }
+
+        figure img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        figcaption {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 28px 0;
+        }
+
+        .card {
+            padding: 22px;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+        }
+
+        .card.problem {
+            background: linear-gradient(180deg, #fff1f2 0%, #ffffff 100%);
+            border-color: #fecdd3;
+        }
+
+        .card.solution {
+            background: linear-gradient(180deg, #ecfeff 0%, #ffffff 100%);
+            border-color: #a5f3fc;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .diagram {
+            margin: 28px 0;
+            padding: 18px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            border: 1px solid var(--line);
+        }
+
+        .diagram-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .diagram-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .node {
+            padding: 14px 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            text-align: center;
+            background: white;
+            border: 1px solid var(--line);
+        }
+
+        .node.problem {
+            background: #fff1f2;
+            border-color: #fda4af;
+            color: #9f1239;
+        }
+
+        .node.solution {
+            background: #ecfeff;
+            border-color: #67e8f9;
+            color: #155e75;
+        }
+
+        .arrow {
+            color: var(--muted);
+            font-size: 22px;
+            text-align: center;
+        }
+
+        blockquote {
+            margin: 34px 0;
+            padding: 24px 26px;
+            border-left: 6px solid var(--orange);
+            background: linear-gradient(180deg, #fff7ed 0%, #fffbeb 100%);
+            border-radius: 14px;
+            font-size: 24px;
+            line-height: 1.55;
+            color: #7c2d12;
+        }
+
+        .cta {
+            margin-top: 40px;
+            padding: 22px 24px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(8, 145, 178, 0.1));
+            border: 1px solid rgba(8, 145, 178, 0.18);
+        }
+
+        .cta strong {
+            color: var(--teal);
+        }
+
+        a { color: var(--cyan); }
+
+        @media (max-width: 820px) {
+            .hero, .content { padding: 32px 24px; }
+            h1 { font-size: 34px; }
+            .subtitle, .lede, p { font-size: 18px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .diagram-row { grid-template-columns: 1fr; }
+            .arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+    <article class="article">
+        <header class="hero">
+            <div class="eyebrow">Systems, Trust, Product Quality</div>
+            <h1>What a Broken PDF Export Revealed About Product Trust</h1>
+            <p class="subtitle">A small tooling failure, a better abstraction, and what reliable systems owe their users.</p>
+        </header>
+
+        <section class="content">
+            <p class="lede">When I exported the PDF, the document looked polished enough at first glance. Then I noticed what the system had quietly added.</p>
+
+            <ul class="micro-list">
+                <li>A timestamp in the header.</li>
+                <li>The page title at the top.</li>
+                <li>A local <code>file:///...</code> path in the footer.</li>
+            </ul>
+
+            <p>I hadn't asked for any of that. But it was there, embedded in an artifact meant to be shared.</p>
+            <p>At one level, this was a small bug in an HTML-to-PDF workflow. At another, it exposed something more important: product trust often breaks in exactly this way. Not through catastrophic failure, but through seemingly minor moments when a system adds behavior the user did not intend, did not authorize, and may not even notice until it is too late.</p>
+            <p>That kind of failure interests me because it sits at the boundary between implementation detail and human confidence. The problem was not only that the PDF looked wrong. The deeper problem was that the system had violated the user's mental model of what “export” should mean.</p>
+
+            <figure>
+                <img src="https://raw.githubusercontent.com/jkelleman/html-to-pdf-clean-export/main/docs/assets/before-after.png" alt="Before and after comparison showing Chrome CLI leaking timestamp, title, and file path into a PDF while the Playwright export remains clean." />
+                <figcaption>Chrome CLI leaked visible print chrome into the exported PDF. The Playwright-based export did not.</figcaption>
+            </figure>
+
+            <h2>A Small Failure With Bigger Implications</h2>
+            <p>It is easy to dismiss a leaked footer or header as formatting noise. But that framing misses the real issue.</p>
+            <p>If a user exports a document, the system should not quietly append machine-local metadata. It should not decide to include a timestamp, a page title, or a local file path unless the user explicitly wants that output.</p>
+            <p>Once a tool starts adding visible information outside the user's intent, the failure is no longer cosmetic. It becomes structural.</p>
+
+            <div class="card-grid">
+                <div class="card problem">
+                    <h3>Why the leak matters</h3>
+                    <ul>
+                        <li>The output is no longer a faithful representation of the source.</li>
+                        <li>Local file paths can expose implementation details the user never meant to share.</li>
+                        <li>The product feels less stable, predictable, and trustworthy.</li>
+                    </ul>
+                </div>
+                <div class="card solution">
+                    <h3>What users actually expect</h3>
+                    <ul>
+                        <li>Export should preserve intent, not add machine-local noise.</li>
+                        <li>Polished artifacts should be safe to share by default.</li>
+                        <li>The system should hide incidental complexity, not export it.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>The Wrong Abstraction Usually Reveals Itself Indirectly</h2>
+            <p>The original export flow used a common pattern: render HTML, call Chrome in headless mode, and print to PDF through CLI flags.</p>
+            <p>On paper, that seemed reasonable. The workflow was simple, scriptable, and widely used. It was also the wrong abstraction for what I actually needed.</p>
+            <p>I tried the obvious fixes first. Header and footer template flags. Margin adjustments. Blink settings that implied more control than they delivered. Each attempt suggested the surface should be capable of clean output. None actually gave me the guarantee I needed.</p>
+            <p>That was the real signal. When a tool appears expressive enough to solve the problem, but continues to behave inconsistently where precision matters, I stop asking how to force it harder and start asking whether I am solving the problem at the wrong layer.</p>
+
+            <div class="diagram">
+                <div class="diagram-row">
+                    <div class="node">HTML source</div>
+                    <div class="arrow">→</div>
+                    <div class="node problem">Chrome CLI print path</div>
+                    <div class="arrow">→</div>
+                    <div class="node problem">PDF with leaked print chrome</div>
+                </div>
+                <div class="diagram-row">
+                    <div class="node">HTML source</div>
+                    <div class="arrow">→</div>
+                    <div class="node solution">Playwright <code>page.pdf()</code></div>
+                    <div class="arrow">→</div>
+                    <div class="node solution">Clean PDF output</div>
+                </div>
+            </div>
+
+            <h2>The Better Fix Was to Move to a Better Surface</h2>
+            <p>I replaced Chrome's CLI print flow with Playwright's PDF API.</p>
+            <p>The code change was relatively small. The systems difference was substantial. Instead of relying on a shell-level print path that kept leaking unwanted behavior into the output, I moved to an interface designed for programmatic control over PDF generation.</p>
+            <p>That gave me a more truthful export model: render the HTML, preserve backgrounds and styling, generate the PDF through the browser's PDF API, and explicitly disable visible browser-generated header and footer content.</p>
+            <p>The result was not just a cleaner PDF. It was a cleaner contract.</p>
+
+            <h2>What Product Trust Actually Looks Like</h2>
+            <p>People often talk about trust in product terms that are large and abstract: safety, quality, transparency, reliability.</p>
+            <p>But trust is often built or broken in much smaller moments. It lives in whether a system does what it appears to do. It lives in whether hidden behavior leaks into visible output. It lives in whether users have to compensate for unstable abstractions.</p>
+            <p>That is why I do not think of this as a minor formatting fix. It is a small case study in a broader principle: trustworthy systems do not merely complete tasks. They preserve meaning.</p>
+
+            <blockquote>
+                The interesting work was not suppressing a bad footer. It was choosing a surface that could actually honor the output standard I cared about.
+            </blockquote>
+
+            <h2>Why I Turned the Fix Into an Open-Source Tool</h2>
+            <p>I only publish small utilities when the underlying lesson seems broader than the original workflow. This one clearly was.</p>
+            <p>A lot of people generate PDFs from HTML for resumes, reports, portfolios, invoices, internal documentation, and application materials. Many of those workflows depend on an implicit assumption: if the document looks correct in the browser, the export path will probably behave. That assumption is weaker than it should be.</p>
+            <p>So I wanted to publish something more reusable than a local fix. I wanted a small tool, a visible before-and-after example, and a clear articulation of the actual failure mode.</p>
+            <p>The resulting utility is called <strong>html-to-pdf-clean-export</strong>. It uses Playwright's PDF API instead of Chrome's <code>--print-to-pdf</code> CLI path, and I built the public repo to reflect the same principles as the fix itself: clear behavior, minimal leakage, safe examples, and explicit explanation.</p>
+
+            <h2>The Broader Lesson</h2>
+            <p>The older I get, the less interested I am in systems that merely work under favorable assumptions.</p>
+            <p>I care more about systems that behave honestly. Systems that do not smuggle implementation details into user-facing outputs. Systems that let people build accurate mental models. Systems that reduce the amount of hidden behavior users have to absorb.</p>
+            <p>The visible bug here was a broken PDF export. The deeper problem was a system making promises at the interface layer that it could not reliably keep.</p>
+            <p>That is usually the kind of systems work I want to do.</p>
+
+            <div class="cta">
+                <p><strong>Repo:</strong> <a href="https://github.com/jkelleman/html-to-pdf-clean-export">github.com/jkelleman/html-to-pdf-clean-export</a></p>
+                <p>If you've run into similar cases where a seemingly minor tooling issue turned out to reveal a deeper abstraction or trust problem, I'd love to hear about it.</p>
+            </div>
+        </section>
+    </article>
+</body>
+</html>
